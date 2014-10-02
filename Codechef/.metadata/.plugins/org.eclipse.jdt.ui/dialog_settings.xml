@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+<<<<<<< HEAD
 	<section name="OptionalMessageDialog.hide.">
 		<item value="true" key="org.eclipse.jdt.ui.typecomment.deprecated"/>
 	</section>
@@ -14,4 +15,8 @@
 		<item value="false" key="create_main"/>
 		<item value="true" key="create_unimplemented"/>
 	</section>
+=======
+	<section name="JavaElementSearchActions">
+	</section>
+>>>>>>> 2e36937de6bf1ba158c7047197afbf718f519d7c
 </section>

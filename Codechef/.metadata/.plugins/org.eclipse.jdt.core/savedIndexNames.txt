@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 INDEX VERSION 1.126+/media/ashutosh/Ashutosh/Competitive Programming/Codechef/.metadata/.plugins/org.eclipse.jdt.core
 1714592054.index
 3829351191.index
@@ -12,3 +13,20 @@ INDEX VERSION 1.126+/media/ashutosh/Ashutosh/Competitive Programming/Codechef/.m
 1880525909.index
 1989682271.index
 1514218975.index
+=======
+INDEX VERSION 1.126+/media/ashutosh/Ashutosh/Competitive Programming/Codechef/Codechef/.metadata/.plugins/org.eclipse.jdt.core
+1453598739.index
+2913048097.index
+2064907913.index
+1225813827.index
+3305932411.index
+726145421.index
+1279675953.index
+4201408329.index
+207581026.index
+954478507.index
+2031085872.index
+3693448964.index
+3177648776.index
+1529428270.index
+>>>>>>> 2e36937de6bf1ba158c7047197afbf718f519d7c

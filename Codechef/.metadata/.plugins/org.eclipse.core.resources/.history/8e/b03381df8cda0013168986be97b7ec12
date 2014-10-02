@@ -1,0 +1,34 @@
+import java.io.IOException;
+
+class LinkedList {
+	private int data;
+	LinkedList nextNode;
+
+	public LinkedList(int data) {
+		this.data = data;
+		nextNode = null;
+	}
+
+	public int getData() {
+		return this.data;
+	}
+
+	public void setData(int data) {
+		this.data = data;
+	}
+
+	public LinkedList getNext() {
+		return this.nextNode;
+	}
+
+	public void setNext(LinkedList nextNode) {
+		this.nextNode = nextNode;
+	}
+}
+
+public class ListingLinks {
+	public static void main(String args[]) throws IOException {
+		LinkedList linkedlist = new LinkedList();
+
+	}
+}

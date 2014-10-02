@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+<<<<<<< HEAD
 	<section name="WorkbenchPreferenceDialogSettings">
 		<item value="23" key="DIALOG_Y_ORIGIN"/>
 		<item value="-231" key="DIALOG_X_ORIGIN"/>
+=======
+	<section name="NewWizardAction">
+>>>>>>> 2e36937de6bf1ba158c7047197afbf718f519d7c
 	</section>
 </section>

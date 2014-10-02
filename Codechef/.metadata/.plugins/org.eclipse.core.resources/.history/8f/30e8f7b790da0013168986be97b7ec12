@@ -1,0 +1,96 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+class LinkedList {
+	private int data;
+	LinkedList nextNode;
+
+	public LinkedList(int data) {
+		this.data = data;
+		nextNode = null;
+	}
+
+	public int getData() {
+		return this.data;
+	}
+
+	public void setData(int data) {
+		this.data = data;
+	}
+
+	public LinkedList getNext() {
+		return this.nextNode;
+	}
+
+	public void setNext(LinkedList nextNode) {
+		this.nextNode = nextNode;
+	}
+}
+
+public class ListingLinks {
+	public static void main(String args[]) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		LinkedList headNode = null;
+		System.out
+				.println("Do you want to insert a Node? Press 1 for \'YES\' and 0 for \'NO\'");
+		int c = Integer.parseInt(br.readLine());
+
+		while (c == 1) {
+			System.out.println("Insert Data");
+			int data = Integer.parseInt(br.readLine());
+			LinkedList nodeToInsert = new LinkedList(data);
+			System.out.println("Insert Position");
+			int pos = Integer.parseInt(br.readLine()); 
+			headNode = insert(headNode,nodeToInsert, pos);
+			System.out
+			.println("Do you want to insert a Node? Press 1 for \'YES\' and 0 for \'NO\'");
+			c = Integer.parseInt(br.readLine());
+		}
+		
+		printList(headNode);
+	}
+
+	public static LinkedList insert(LinkedList head, LinkedList nodeToInsert,
+			int position) {
+		int poss = 0;
+		LinkedList current = head;
+		if (head == null && position == 1) {
+			head = nodeToInsert;
+		} else {
+			while (current != null) {
+				poss++;
+				current = current.getNext();
+			}
+			System.out.println(poss);
+			current = head;
+			int c = 0;
+			if(position > poss+1)
+			{
+				System.out.println("Invalid position");
+			}
+			else if(position==1)
+			{
+				nodeToInsert.setNext(head);
+				head = nodeToInsert;
+			}
+			else if (position <= poss+1) {
+				while (c < position-1) {
+					current = current.getNext();
+					c++;
+				}
+				current.setNext(nodeToInsert);
+				nodeToInsert.setNext(current.getNext().getNext());
+			}
+		}
+		return head;
+	}
+	
+	public static void printList(LinkedList headNode){
+		while(headNode!= null)
+		{
+			System.out.print(headNode.getData()+" -> ");
+			headNode = headNode.getNext();
+		}
+	}
+}

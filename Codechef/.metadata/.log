@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 !SESSION 2013-12-03 18:49:33.077 -----------------------------------------------
 eclipse.buildId=I20110613-1736
 java.version=1.7.0_45
@@ -238,12 +239,16 @@ Command-line arguments:  -os linux -ws gtk -arch x86
 !ENTRY org.eclipse.core.resources 2 10035 2014-05-25 17:06:26.862
 !MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
 !SESSION 2014-07-06 12:39:49.995 -----------------------------------------------
+=======
+!SESSION 2014-05-25 11:26:26.612 -----------------------------------------------
+>>>>>>> 2e36937de6bf1ba158c7047197afbf718f519d7c
 eclipse.buildId=debbuild
 java.version=1.7.0_55
 java.vendor=Oracle Corporation
 BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
 Command-line arguments:  -os linux -ws gtk -arch x86
 
+<<<<<<< HEAD
 !ENTRY org.eclipse.core.resources 2 10035 2014-07-06 12:39:58.325
 !MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
 
@@ -1242,4 +1247,7 @@ BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
 Command-line arguments:  -os linux -ws gtk -arch x86
 
 !ENTRY org.eclipse.core.resources 2 10035 2014-09-06 02:29:10.347
+=======
+!ENTRY org.eclipse.core.resources 2 10035 2014-05-25 11:26:38.375
+>>>>>>> 2e36937de6bf1ba158c7047197afbf718f519d7c
 !MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.

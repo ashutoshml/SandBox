@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <dirs>
+<<<<<<< HEAD
 <entry loc="/usr/lib/jvm/java-7-oracle" stamp="1381982147000"/>
+=======
+<entry loc="/usr/lib/jvm/java-7-openjdk-i386" stamp="1411993913000"/>
+>>>>>>> 2e36937de6bf1ba158c7047197afbf718f519d7c
 </dirs>

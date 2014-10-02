@@ -4,7 +4,10 @@ org.eclipse.jface.textfont=1|Monospace|10.0|0|GTK|1|;
 org.eclipse.wst.jsdt.ui.editor.tab.width=
 org.eclipse.wst.jsdt.ui.formatterprofiles.version=11
 org.eclipse.wst.jsdt.ui.javadoclocations.migrated=true
+<<<<<<< HEAD
 proposalOrderMigrated=true
+=======
+>>>>>>> 2e36937de6bf1ba158c7047197afbf718f519d7c
 tabWidthPropagated=true
 useAnnotationsPrefPage=true
 useQuickDiffPrefPage=true

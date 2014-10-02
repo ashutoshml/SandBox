@@ -1,0 +1,44 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+
+public class RAINBOWB {
+	public static void main(String args[]) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		long[][] n = new long[1000001][6];
+		Arrays.fill(n[0], 0);
+		Arrays.fill(n[1], 0);
+		n[1][0] = 1;
+		for (int i = 2; i < 1000001; ++i) {
+			for (int j = 0; j < 6; ++j) {
+				if (j - 1 < 0)
+					n[i][j] = n[i - 1][j] % 1000000007;
+				else {
+					n[i][j] = n[i - 1][j - 1] % 1000000007 + n[i - 1][j]
+							% 1000000007;
+				}
+			}
+		}
+		long k[] = { 6, 15, 20, 15, 6, 1 };
+		int m = Integer.parseInt(br.readLine());
+		if (m < 13) {
+			System.out.println(0);
+			System.exit(0);
+		}
+
+		if (m % 2 == 0)
+			m = (m - 2) / 2 - 6;
+		else
+			m = (m - 1) / 2 - 6;
+
+		long sum = 1;
+		for (int i = 0; i <= m; ++i) {
+			for (int r = 0; r < 6; ++r) {
+				sum = sum + (n[i][r] * k[r]) % 1000000007;
+				sum %= 1000000007;
+			}
+		}
+		System.out.println(sum);
+	}
+}
