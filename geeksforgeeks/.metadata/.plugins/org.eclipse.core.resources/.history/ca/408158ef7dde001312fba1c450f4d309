@@ -1,0 +1,22 @@
+import java.io.IOException;
+
+
+public class FibonacciCheck {
+	public static void main(String args[]) throws IOException {
+		
+	}
+	
+	static boolean checkFib(long n){
+		
+		if(isSqrt(5*n*n-4)||isSqrt(5*n*n+4))
+			return true;
+		return false;
+	}
+	
+	static boolean isSqrt(long n){
+		long a = (long)Math.sqrt(n);
+		if(a*a == n)
+			return true;
+		return false;
+	}
+}

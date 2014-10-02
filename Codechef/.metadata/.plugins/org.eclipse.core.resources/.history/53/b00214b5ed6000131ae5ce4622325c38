@@ -1,0 +1,77 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+
+public class RECTQUER {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		int n = Integer.parseInt(br.readLine().trim());
+		int mat[][][] = new int[n][n][10];
+		int a[] = new int[10];
+		int s1;
+
+		String s[] = br.readLine().trim().split(" ", -1);
+		Arrays.fill(a, 0);
+		for (int j = 0; j < n; ++j) {
+			s1 = Integer.parseInt(s[j]);
+			++a[s1-1];
+			for (int k = 0; k < 10; k++) {
+				mat[0][j][k] = a[k];
+			}
+		}
+		
+		for (int i = 1; i < n; i++) {
+			s = br.readLine().trim().split(" ", -1);
+			Arrays.fill(a,0);
+			for (int j = 0; j < n; ++j) {
+				s1 = Integer.parseInt(s[j]);
+				++a[s1-1];
+				if(j==0)
+				{
+					for(int k =0;k<10;++k)
+					mat[i][0][k] = mat[i-1][0][k] + a[k]; 
+				}
+				else 
+				{
+					for(int k =0;k<10;++k)
+					{
+						mat[i][j][k] = mat[i-1][j][k] +(mat[i][j-1][k]-mat[i-1][j-1][k-1]) + a[k];
+					}
+				}
+			}
+		}
+
+		int q = Integer.parseInt(br.readLine().trim());
+
+		while (q-- > 0) {
+			String s[] = br.readLine().trim().split(" ", -1);
+			int x1 = Integer.parseInt(s[0]) - 1;
+			int y1 = Integer.parseInt(s[1]) - 1;
+			int x2 = Integer.parseInt(s[2]) - 1;
+			int y2 = Integer.parseInt(s[3]) - 1;
+			int res1[] = new int[10];
+			int res2 = 0;
+
+			if (x1 == x2 && y1 == y2) {
+				System.out.println(1);
+				continue;
+			}
+			for (int j = x1; j <= x2; j++) {
+				for (int i = 0; i < 10; ++i) {
+					if (y1 != 0)
+						if (mat[j][y2][i] != mat[j][y1 - 1][i])
+							res1[i] = 1;
+					if (y1 == 0)
+						if (mat[j][y2][i] != 0)
+							res1[i] = 1;
+				}
+			}
+			for (int i = 0; i < 10; ++i) {
+				res2 += res1[i];
+			}
+			System.out.println(res2);
+		}
+	}
+}

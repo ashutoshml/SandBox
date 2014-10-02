@@ -1,0 +1,11 @@
+import java.io.IOException;
+
+
+public class PRIME1 {
+	public static void main(String[] args)throws IOException
+	{
+		boolean n;
+		System.out.println(n);
+		
+	}
+}

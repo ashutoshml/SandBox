@@ -1,0 +1,42 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class PRIME1 {
+	public static void main(String[] args) throws IOException {
+		ArrayList<Boolean> prime = new ArrayList();
+		for(int i = 0;i<=500000000;++i)
+		{
+			prime.add(true);
+		}
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int t = Integer.parseInt(br.readLine().trim());	
+		
+		prime = generatePrime(prime);
+
+		while (t-- > 0) {
+			String s[] = br.readLine().trim().split(" ", -1);
+			int n = Integer.parseInt(s[0]);
+			int m = Integer.parseInt(s[1]);
+			for (int i = n; i <= m; ++i) {
+				if (prime.get(i))
+					System.out.println(i);
+			}
+			System.out.println();
+		}
+	}
+
+	public static ArrayList<Boolean> generatePrime(ArrayList<Boolean> n) {
+		n.set(0, false);
+		n.set(0, false);
+		int m = (int) Math.sqrt(1000000000);
+		for (int i = 2; i <= m; i++)
+			if (n.get(i))
+				for (int k = i * i; k <= m; k += i)
+					n.set(k,false);
+		return n;
+	}
+}

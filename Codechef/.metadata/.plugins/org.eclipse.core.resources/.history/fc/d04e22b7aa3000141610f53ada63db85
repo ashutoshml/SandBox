@@ -1,0 +1,8 @@
+import java.text.DecimalFormat;
+
+public class Test {
+	public static void main(String args[]) {
+		DecimalFormat f = new DecimalFormat("#.0");
+		System.out.println(f.format(2345.2224));
+		}
+}

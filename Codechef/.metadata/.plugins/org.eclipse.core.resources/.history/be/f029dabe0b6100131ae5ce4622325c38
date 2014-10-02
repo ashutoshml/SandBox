@@ -1,0 +1,82 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+
+public class CHODE {
+	static class Stringchars implements Comparable<Stringchars> {
+		char s;
+		int freq;
+		int pos;
+
+		public Stringchars(char s, int freq, int pos) {
+			this.s = s;
+			this.freq = freq;
+			this.pos = pos;
+		}
+
+		@Override
+		public int compareTo(Stringchars s) {
+			int z = -(this.freq - s.freq);
+			if (z == 0)
+				return (this.pos - s.pos);
+			return z;
+		}
+	}
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int t = Integer.parseInt(br.readLine());
+		char freq[] = new char[26];
+		int freqtext[] = new int[26];
+		String s;
+		char[] text = new char[150000];
+
+		while (t-- > 0) {
+			s = br.readLine().trim();
+			Arrays.fill(freqtext, 0);
+			for (int i = 0; i < 26; ++i)
+				freq[i] = s.charAt(25 - i);
+
+			s = br.readLine().trim();
+
+			int count = 0;
+			for (int i = 0; i < s.length(); ++i) {
+				char s1 = s.charAt(i);
+				if (s1 >= 65 && s1 <= 90) {
+					freqtext[s1 - 65]++;
+					count++;
+				} else if (s1 >= 97 && s1 <= 122) {
+					freqtext[s1 - 97]++;
+					count++;
+				}
+			}
+			Stringchars[] stringchars = new Stringchars[count];
+			int counter = 0;
+			for (int i = 0; i < s.length(); ++i) {
+				char s1 = s.charAt(i);
+				if (s1 >= 65 && s1 <= 90 || s1 >= 97 && s1 <= 122) {
+					int frequ;
+					if (s1 >= 65 && s1 <= 90)
+						frequ = freqtext[s1 - 65];
+					else
+						frequ = freqtext[s1 - 97];
+					stringchars[counter] = new Stringchars(s1, frequ, i);
+					counter++;
+				}
+			}
+			Arrays.sort(stringchars);
+			int m = 0;
+			while (count != 0) {
+				char oldChar = stringchars[count - 1].s;
+				char newChar = freq[m];
+				if (oldChar >= 65 && oldChar <= 90)
+					newChar = (char) (newChar + 32);
+				s = s.replace(oldChar, newChar);
+				count--;
+				m++;
+			}
+			System.out.println(s);
+		}
+	}
+}

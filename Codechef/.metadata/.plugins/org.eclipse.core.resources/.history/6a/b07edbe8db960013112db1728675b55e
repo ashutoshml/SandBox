@@ -1,0 +1,71 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+
+public class TWODOGS {
+	static class MakeHappy implements Comparable<MakeHappy> {
+		int data;
+		int pos;
+
+		public MakeHappy(int data, int pos) {
+			this.data = data;
+			this.pos = pos;
+		}
+
+		@Override
+		public int compareTo(MakeHappy a) {
+
+			if (this.data == a.data) {
+				return this.pos - a.pos;
+			}
+			return this.data - a.data;
+		}
+	}
+
+	public static void main(String args[]) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int n, k;
+		String s[] = br.readLine().trim().split(" ", -1);
+		n = Integer.parseInt(s[0]);
+		k = Integer.parseInt(s[1]);
+		MakeHappy[] makeHappy = new MakeHappy[n];
+		String s1[] = br.readLine().trim().split(" ", -1);
+		for (int i = 0; i < n; ++i) {
+			makeHappy[i] = new MakeHappy(Integer.parseInt(s1[i]), Math.min(
+					i + 1, n - i));
+		}
+		Arrays.sort(makeHappy);
+
+		int i = 0, j = n - 1;
+		int flag = 0;
+		int count = 0;
+		int min = 1;
+		int tempSum;
+		while (i != j && flag != 1) {
+			if (makeHappy[i].data + makeHappy[j].data > k)
+				i++;
+			else if (makeHappy[i].data + makeHappy[j].data < k)
+				j--;
+			else {
+				if (count == 0) {
+					min = Math.min(makeHappy[i].pos, makeHappy[j].pos);
+					count = 1;
+				} else {
+					tempSum = Math.min(makeHappy[i].pos, makeHappy[j].pos);
+					if (tempSum < min) {
+						min = tempSum;
+					}
+				}
+				if (makeHappy[i + 1].data + makeHappy[j - 1].data == k) {
+					i++;
+					j--;
+				} else if (makeHappy[i + 1].data + makeHappy[j - 1].data < k) {
+					i++;
+				} else if (makeHappy[i + 1].data + makeHappy[j - 1].data > k) {
+					j--;
+				}
+			}
+		}
+	}
+}

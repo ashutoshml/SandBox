@@ -1,0 +1,61 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+class LinkedList {
+	private int data;
+	LinkedList nextNode;
+
+	public LinkedList(int data) {
+		this.data = data;
+		nextNode = null;
+	}
+
+	public int getData() {
+		return this.data;
+	}
+
+	public void setData(int data) {
+		this.data = data;
+	}
+
+	public LinkedList getNext() {
+		return this.nextNode;
+	}
+
+	public void setNext(LinkedList nextNode) {
+		this.nextNode = nextNode;
+	}
+}
+
+public class ListingLinks {
+	public static void main(String args[]) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		LinkedList headNode = null;
+		System.out.println("Do you want to insert a Node? Press 1 for \'YES\' and 0 for \'NO\'");
+		int c = Integer.parseInt(br.readLine());
+
+		while (c == 1) {
+			System.out.println();
+		}
+	}
+
+	public static LinkedList insert(LinkedList head, LinkedList nodeToInsert,
+			int position) {
+		int poss = 0;
+		LinkedList current = head;
+		if (head == null && position == 1) {
+			head = nodeToInsert;
+		} else {
+			while(current!=null)
+			{
+				poss++;
+				current=current.getNext();
+			}
+			if(position<=poss){
+				
+			}
+		}
+		return head;
+	}
+}

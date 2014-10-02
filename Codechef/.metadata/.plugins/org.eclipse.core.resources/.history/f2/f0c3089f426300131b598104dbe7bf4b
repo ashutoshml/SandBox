@@ -1,0 +1,90 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+
+public class RECTQUER {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		int n = Integer.parseInt(br.readLine().trim());
+		int mat[][][] = new int[n][n][10];
+		int a[] = new int[10];
+		int s1;
+
+		String s[] = br.readLine().trim().split(" ", -1);
+		Arrays.fill(a, 0);
+		for (int j = 0; j < n; ++j) {
+			s1 = Integer.parseInt(s[j]);
+			++a[s1 - 1];
+			for (int k = 0; k < 10; k++) {
+				mat[0][j][k] = a[k];
+			}
+		}
+
+		for (int i = 1; i < n; i++) {
+			s = br.readLine().trim().split(" ", -1);
+			Arrays.fill(a, 0);
+			for (int j = 0; j < n; ++j) {
+				s1 = Integer.parseInt(s[j]);
+				++a[s1 - 1];
+				if (j == 0) {
+					for (int k = 0; k < 10; ++k)
+						mat[i][0][k] = mat[i - 1][0][k] + a[k];
+				} else {
+					for (int k = 0; k < 10; ++k) {
+						mat[i][j][k] = mat[i - 1][j][k]
+								+ (mat[i][j - 1][k] - mat[i - 1][j - 1][k]);
+					}
+					mat[i][j][s1 - 1]++;
+				}
+			}
+		}
+
+		int q = Integer.parseInt(br.readLine().trim());
+
+		int res1[] = new int[10];
+		int count1[] = new int[10];
+		int count2[] = new int[10];
+		int count3[] = new int[10];
+		int count4[] = new int[10];
+
+		while (q-- > 0) {
+			s = br.readLine().trim().split(" ", -1);
+			int x1 = Integer.parseInt(s[0]) - 1;
+			int y1 = Integer.parseInt(s[1]) - 1;
+			int x2 = Integer.parseInt(s[2]) - 1;
+			int y2 = Integer.parseInt(s[3]) - 1;
+			Arrays.fill(count1, 0);
+			Arrays.fill(count2, 0);
+			Arrays.fill(count3, 0);
+			Arrays.fill(count4, 0);
+			Arrays.fill(res1, 0);
+			int res2 = 0;
+
+			if (x1 == x2 && y1 == y2) {
+				System.out.println(1);
+				continue;
+			}
+
+			for (int i = 0; i < 10; ++i) {
+				if (x1 > 0) {
+					count2[i] = mat[x1 - 1][y2][i];
+				}
+				if (y1 > 0) {
+					count3[i] = mat[x2][y1 - 1][i];
+				}
+				if (x1 > 0 && y1 > 0) {
+					count1[i] = mat[x1 - 1][y1 - 1][i];
+				}
+				count4[i] = mat[x2][y2][i];
+
+				if (count4[i] - count2[i] - count3[i] + count1[i] > 0) {
+					res1[i] = 1;
+				}
+				res2 += res1[i];
+			}
+			System.out.println(res2);
+		}
+	}
+}

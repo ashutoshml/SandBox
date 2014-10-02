@@ -1,0 +1,24 @@
+import java.io.IOException;
+import java.math.BigInteger;
+
+
+public class FibonacciCheck {
+	public static void main(String args[]) throws IOException {
+		
+	}
+	
+	static boolean checkFib(BigInteger n){
+		
+		BigInteger a = n.multiply(n).multiply(BigInteger.valueOf(5)).subtract(BigInteger.valueOf(4));
+		BigInteger b = n.multiply(n).multiply(BigInteger.valueOf(5)).add(BigInteger.valueOf(4));
+		if(isSqrt(5*n*n-4) || isSqrt(5*n*n+4)){
+			
+		}
+		
+		return false;
+	}
+	
+	static boolean isSqrt(BigInteger n){
+		
+	}
+}
